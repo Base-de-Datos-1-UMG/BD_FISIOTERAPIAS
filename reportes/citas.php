@@ -11,7 +11,19 @@
     $res = json_decode(file_get_contents($url));
 
     //Consultamos la tabla que queremos mostrar en la vista
-    $sql = "SELECT * FROM BD1_VISTA_CLIENTES";
+    $sql = "SELECT 
+                A.ID_CITA,F.NOMBRE1 || ' ' || F.NOMBRE2 || ' ' || F.APELLIDO1 || ' ' ||F.APELLIDO2 AS NOMBRE,
+                B.HORA_INICIO,
+                B.HORA_FIN,
+                C.NOMBRE_SERVICIO,
+                D.TIPO_ESTADO 
+            FROM BD1_CITA A 
+            INNER JOIN BD1_HORARIO B ON A.ID_HORARIO = B.ID_HORARIO
+            INNER JOIN BD1_SERVICIO C ON A.ID_SERVICIO = C.ID_SERVICIO
+            INNER JOIN BD1_ESTADO D ON A.ID_ESTADO = D.ID_ESTADO
+            INNER JOIN BD1_CLIENTE E ON A.ID_CLIENTE = E.ID_CLIENTE
+            INNER JOIN BD1_PERSONA F ON E.ID_PERSONA = F.ID_PERSONA
+            ORDER BY A.ID_CITA ASC";
 
     //usamos db_select para traer multiples filas
     $result = db_select($sql, $conn);
@@ -25,7 +37,7 @@
             $this->SetFont("Arial","B",30);
             $this->SetFillColor(14,22,61);
             $this->SetTextColor(255, 255, 255);
-            $this->Cell(0,30,"  Reporte de Clientes", 0, 1, 'L', true);
+            $this->Cell(0,30,"  Reporte de Citas", 0, 1, 'L', true);
         }
 
         function Footer(){
@@ -40,7 +52,7 @@
             $this->SetFont("Arial","B", 16);
             $this->SetFillColor(255, 255, 255);
             $this->SetTextColor(14, 22, 61);
-            $this->Cell(0,10,"Informacion de clientes activos", 0, 1, 'L', true);
+            $this->Cell(0,10,"Citas Agendadas", 0, 1, 'L', true);
         }
 
         function FancyTable($result,$registros){
@@ -52,11 +64,11 @@
             $this->SetFont('','B', 10);
             $w = array(24,58,15,15,30,18,29);
             // Cabecera
-            $this->Cell(20, 10, "ID", 0, 0, "C", 1);
-            $this->Cell(60, 10, "Nombre", 0, 0, "L", 1);
-            $this->Cell(40, 10, "Fecha Nacimiento", 0, 0, "L", 1);
-            $this->Cell(35, 10, "Alta", 0, 0, "L", 1);
-            $this->Cell(35, 10, "Estado", 0, 0, "L", 1);
+            $this->Cell(80, 10, "Nombre", 0, 0, "C", 1);
+            $this->Cell(20, 10, "Hora Inicio", 0, 0, "C", 1);
+            $this->Cell(20, 10, "Hora Fin", 0, 0, "C", 1);
+            $this->Cell(45, 10, "Servicio", 0, 0, "C", 1);
+            $this->Cell(25, 10, "Estado", 0, 0, "C", 1);
             $this->Ln();
             
             // Restauración de colores y fuentes
@@ -74,11 +86,11 @@
             $recuperados = 0;
             foreach($result as $row){
                 
-                $this->Cell(20,6, $row['ID_CLIENTE'],0,0,'C',$fill);
-                $this->Cell(60,6, $row['NOMBRE1'].' '.$row['NOMBRE2'].' '.$row['APELLIDO1'].' '.$row['APELLIDO2'],0,0,'L',$fill);
-                $this->Cell(40,6, $row['FECHA_NACIMIENTO'],0,0,'L',$fill);
-                $this->Cell(35,6, $row['ALTA_CLIENTE'],0,0,'L',$fill);
-                $this->Cell(35,6, $row['TIPO_ESTADO'],0,0,'L',$fill);
+                $this->Cell(80,6, $row['NOMBRE'],0,0,'C',$fill);
+                $this->Cell(20,6, $row['HORA_INICIO'],0,0,'C',$fill);
+                $this->Cell(20,6, $row['HORA_FIN'],0,0,'C',$fill);
+                $this->Cell(45,6, $row['NOMBRE_SERVICIO'],0,0,'C',$fill);
+                $this->Cell(25,6, $row['TIPO_ESTADO'],0,0,'C',$fill);
                 $this->Ln();
                 $fill = !$fill;
 
@@ -104,7 +116,7 @@
     //Objeto FPDF
     $pdf = new PDF();
     $pdf->PrintChapter($result,$registros);
-    $pdf->Output('Reporte clientes.pdf', 'D');
+    $pdf->Output('Reporte citas.pdf', 'D');
 
     ob_end_flush();
 
