@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<style>
+body {
+    background-image: url('../Imagenes/fondo2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+</style>
+
+</head>
+
+<body class="p-0 m-0 border-0 bd-example">
+    <nav class="navbar navbar-expand-lg bg-light px-5">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Citas
+              </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../citas/ingresar_cita.php">Registrar Cita</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="../citas/lista_cita.php">Ver Citas</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Servicios
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../Servicios/IngresarServicio.php">Registrar Servicio</a></li>
+                    <li><a class="dropdown-item" href="../Servicios/Servicios.php">Ver Servicio</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Tipo_Pago
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../TipoPago/IngresoPago.php">Registrar Formas de Pago</a></li>
+                    <li><a class="dropdown-item" href="../TipoPago/VerTipos.php">Tipos de pagos</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Personas
+              </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../personas/insert_persona.html">Crear personas</a></li>
+                    <li>
+                        <a href="../personas/ver_personas.php" class="dropdown-item">Ver Personas</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="../empleados/create_empleado.php">Crear empleado</a></li>
+                    <li><a href="../empleados/ver_empleados.php" class="dropdown-item">Ver empleados</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Recursos
+              </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../recursos/insert_puesto.html">Crear puesto</a></li>
+                    <li>
+                        <a href="../recursos/ver_puestos.php" class="dropdown-item">Ver Puestos</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Clientes
+                  </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="../clientes/create_cliente.php">Crear cliente</a></li>
+                        <li>
+                            <a href="../clientes/ver_clientes.php" class="dropdown-item">Ver Clientes</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                    </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Facturas
+              </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="../facturacion/factura.php">Crear factura</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="../facturacion/ver_factura.php">Ver factura</a></li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Reportes
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="../reportes/productos.php" class="dropdown-item">Reporte de productos</a></li>
+                    <li><a href="../reportes/empleados.php" class="dropdown-item">Reporte de empleados</a></li>
+                    <li><a href="../reportes/clientes.php" class="dropdown-item">Reporte de clientes</a></li>
+                </ul>
+            </li>
+        </ul>
+        <span class="navbar-text">
+              FISIOTERAPIA UMG
+        </span>
+        <a href="../index.php" class="btn btn-primary ms-3">Logout</a>
+        </div>
+        </div>
+    </nav>
+</body>
+
+</html>

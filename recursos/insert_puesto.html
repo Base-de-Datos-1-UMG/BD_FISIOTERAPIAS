@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fisioterapia UMG</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+
+<body class="container d-flex flex-column justify-content-center" style="min-height: 100vh;">
+
+    <h1 class="mb-4">Creacion de puesto</h1>
+    <form class="row g-3 form-control" action="./insert_puesto.php" method="post">
+        <div class="col-auto">
+            <label for="staticEmail2">Puesto</label>
+            <input type="text" class="form-control" id="puesto" name="puesto" placeholder="Ingresa nombre de puesto" required>
+        </div>
+        <div class="col-auto">
+            <label for="staticEmail2">Descripcion</label>
+            <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Descripcion de puesto">
+        </div>
+        <div class="col-auto w-100 d-flex" style="justify-content: space-around;">
+            <input class="btn btn-success mb-3" id="entrar" type="submit" value="Registrar">
+            <a href="../menu.html" class="btn btn-primary mb-3">Regresar al menu</a>
+        </div>
+    </form>
+</body>
+
+</html>
